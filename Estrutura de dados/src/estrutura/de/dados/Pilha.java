@@ -2,12 +2,14 @@ package estrutura.de.dados;
 
 public class Pilha {
 
-    private int capacidade;
-    private Object pilha[];
-    private int top;
+    //A pilha é uma das estruturas de dados e trabalha com o formato LIFO (o último a entrar é o primeiro a sair, “Last In, First Out”, em inglês).
+    
+    private int capacidade; //capacidade maxima da pilha
+    private Object pilha[]; //pilha em formato de vetor de objetos
+    private int top;//grava o quantidade elementos que existe na pilha
  
 
-
+    //contrutor para inicializar a pilha
     public Pilha(int size) {
         this.capacidade = size; 
         this.pilha = new Object[size];
@@ -15,16 +17,12 @@ public class Pilha {
        
     }
 
-    
-    //verifica o tamanho da pilha
-    public int size(){return this.top;}   
-  
+   
     //verifica se esta vazia
     public boolean isEmpty(){return top == 0;}
     
     //verifica se estar cheia
     public boolean isFull(){return capacidade == top;}
-    
     
     
     //insere no topo da pilha
@@ -68,7 +66,6 @@ public class Pilha {
         }
     }
 
-    
     //main
     public static void main(String[] args) {
         
