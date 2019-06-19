@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package estrutura.de.dados;
 
 /**
@@ -10,8 +5,6 @@ Uma fila difere de uma pilha na medida em que opera na base de um FIFO
 (first-in-first-out). Assim,
 1 adicionamos novos elementos ao fim da fila, e
 2 removemos sempre do princípio da fila.
-* 
-* 
 * Um TAD-fila é uma sequência de elementos, F = [a1, a2, . . . , an], em
 que a1 é o primeiro elemento da fila e an é o último, juntamente com
 as seguintes operações (asseguram que funciona como um FIFO):
@@ -30,6 +23,7 @@ public class Fila {
     private int ultlimo;
     private int capacidade;
 
+    //iniciando a fila
     public Fila(int capacidade) {
         this.capacidade = capacidade;
         this.fila = new Object[this.capacidade];
@@ -71,8 +65,7 @@ public class Fila {
         }
     }
     
-    
-    
+    //main
     public static void main(String[] args) {
       
         Fila f = new Fila(10);
@@ -85,8 +78,7 @@ public class Fila {
         
         System.out.println(f.primeiroDaFila());
         
-        
-        
+           
         
     }
     
