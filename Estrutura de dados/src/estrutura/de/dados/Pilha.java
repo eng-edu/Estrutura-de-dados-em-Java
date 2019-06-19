@@ -1,5 +1,15 @@
 package estrutura.de.dados;
- 
+
+/**
+Um TAD-pilha é uma sequência de elementos, S = [a1, a2, . . . , an], em que
+an é o elemento mais recente da sequência (ou elemento do topo da
+pilha), juntamente com as operações:
+1. x = pop(S) remove e retorna o elemento no topo de S
+2. push(x, S) insere x no topo de S
+3. top(S) retorna an, o elemento no topo de S (mas não altera S)
+4. isEmpty(S) retorna true se S estiver vazio, false caso contrário.
+5. isFull(S) retorna true se S estiver cheio, false caso contrário.
+**/
 public class Pilha {
 
     //A pilha é uma das estruturas de dados e trabalha com o formato LIFO (o último a entrar é o primeiro a sair, “Last In, First Out”, em inglês).
