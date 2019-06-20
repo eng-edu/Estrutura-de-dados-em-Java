@@ -32,8 +32,10 @@ public class Fila {
         this.ultlimo = 0;
     }
     
-    
+    //verifica se esta vazia
     public boolean estaVazia(){return tamanho == 0;}
+    
+    //varifica se esta cheia
     public boolean estaCheia(){return tamanho == capacidade;}
     
     //retorna o priemiro da fila
@@ -77,9 +79,7 @@ public class Fila {
         f.adicionarNaFila("leo");
         
         System.out.println(f.primeiroDaFila());
-        
-           
-        
+       
     }
     
     
