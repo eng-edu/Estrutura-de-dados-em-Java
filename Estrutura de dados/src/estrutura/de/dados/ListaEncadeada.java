@@ -21,74 +21,91 @@ public class ListaEncadeada {
     private No primeiro;
     private int capacidade;
 
+    //inicia a lista
     public ListaEncadeada() {
         this.tamanho = 0;
         this.primeiro = null;
     }
 
-    public void adiciona(Object elemento) {
+    //adciona na lista
+    public void add(Object elemento) {
         primeiro = new No(elemento, primeiro);
         tamanho++;
     }
 
+    //percorre a lista 
     public void print() {
-
         No cursor = primeiro;
-
         while (cursor != null) {
             System.out.println(cursor.dado);
-            cursor = cursor.proximo;
+            cursor = cursor.next;
         }
     }
 
-    public void adiciona(int posicao, Object elemento) {
+    //adiciona em uma posição especifica
+    public void add(int posicao, Object elemento) {
         if (posicao == 0) {
             primeiro = new No(elemento, primeiro);
         } else {
             No cursor = primeiro;
-            for (int i = 0; i < posicao-1; i++) {
-                cursor = cursor.proximo;
+            for (int i = 0; i < posicao - 1; i++) {
+                cursor = cursor.next;
             }
-
-            cursor.proximo = new No(elemento, cursor.proximo);
+            cursor.next = new No(elemento, cursor.next);
         }
-
         tamanho++;
-
     }
 
-    public Object pega(int posicao) {
-        return null;
+    //retrona o indice de um determinado elemento
+    public Object indexOf(Object dado) {
+
+        int index = 0;
+        No cursor = primeiro;
+        for (int i = 0; i < tamanho; i++) {
+
+            if (cursor.dado == dado) {
+                return index;
+            }
+            cursor = cursor.next;
+            index++;
+        }
+
+        return -1;
     }
 
     public void remove(int posicao) {
+        if (posicao == 0) {
+            primeiro = primeiro.next;
+        } else {
+            No cursor = primeiro;
+            for (int i = 0; i < posicao - 1; i++) {
+                cursor = cursor.next;
+            }
+
+            cursor.next = cursor.next.next;
+        }
+
+        tamanho--;
     }
 
-    public int tamanho() {
-        return 0;
-    }
+    public Object get(int posicao) {
+        No cursor = primeiro;
+        for (int i = 0; i < posicao; i++) {
+            cursor = cursor.next;
+        }
 
-    public boolean contem(Object o) {
-        return false;
-    }
-
-    public void adicionaNoComeco(Object elemento) {
-    }
-
-    public void removeDoComeco() {
-    }
-
-    public void removeDoFim() {
+        return cursor.dado;
     }
 
     public static void main(String[] args) {
         ListaEncadeada l = new ListaEncadeada();
-        l.adiciona("eduardo");
-        l.adiciona("leo");
-        l.adiciona("elane");
-        l.adiciona("telma");
-        l.adiciona("nanada");
-        l.adiciona(4, "teste");
+        l.add("eduardo");
+        l.add("leo");
+        l.remove(0);
+        l.add("elane");
+        l.add(0, "teste");
+        System.out.println("indexOf: " + l.indexOf("elane"));
+        System.out.println("get: " + l.get(0));
         l.print();
 
     }
@@ -98,11 +115,11 @@ public class ListaEncadeada {
 class No {
 
     Object dado; //valor do elemento
-    No proximo; //referencia para o proximo
+    No next; //referencia para o proximo
 
-    public No(Object dado, No proximo) {
+    public No(Object dado, No next) {
         this.dado = dado;
-        this.proximo = proximo;
+        this.next = next;
     }
 
 }
